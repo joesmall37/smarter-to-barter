@@ -1,1 +1,1 @@
-# Smartter-to-barter
+# Smarter-to-barter
