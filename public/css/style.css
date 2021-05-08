@@ -1,0 +1,43 @@
+* {
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border box;
+}
+
+:root {
+    --off-white1: #FEFCFB;
+    --barterBlue: #1282A2;
+    --barterAccent: #034078;
+    
+  }
+
+body {
+  font-weight: 200;
+  font-size: 16;
+}
+.navbar {
+  background-color: var(--barterBlue);
+  align-items: left;
+}
+.footer {
+  background-color: #1aa1c7;
+}
+.footer-contact {
+ margin-top: 145px;
+ font-size: 24px;
+ color: #092F62;
+}
+
+.email {
+    text-decoration: none;
+    color: #034078;
+}
+
+.footer-social {
+    margin-top: 145px;
+    margin-right: 20px;
+    font-size: 24px;
+    color: #092F62;
+
+}
