@@ -1,0 +1,21 @@
+<article>
+    <a href="/userprofile"> &larr; Back to User Profile</a>
+    <h2>
+        Edit Post
+    </h2>
+    <form class="edit-post-form">
+        <div>
+            <input name="post-title" type="text" value="{{service.title}}" />
+        </div>
+        <div>
+            <textarea name="post-text">{{service.service_text}}</textarea>
+        </div>
+        <button type="submit">Save Service</button>
+        <button type="button" class="delete-service-btn">Delete Service</button>
+    </form>
+</article>
+
+
+<!--Scripts-->
+<script src="/js/edit-service.js"></script>
+<script src="/js/delete-service.js"></script>
