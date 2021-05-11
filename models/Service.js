@@ -30,6 +30,13 @@ Service.init(
             model: 'user',
             key: 'id',
         }
+    },
+    provider_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Provider',
+        key: 'id',
+      }
     }
   },
   {
