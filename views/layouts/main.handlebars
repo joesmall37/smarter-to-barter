@@ -21,11 +21,11 @@
       <div class="container">
           <div class="row">
               <div class="col 12">
-                      <button class="btn" id="location">Location</button>
-                      <button class="btn" id="bartcoins">BartCoins</button>
+                      <a href="/location"><button class="btn" id="location">Location</button></a>
+                      <a href="/bartcoins"><button class="btn" id="bartcoins">BartCoins</button></a>
                       <a href="/howitworks"><button class="btn" id="howitworks">How It Works</button></a>
                       <a href="/login"><button class="btn" id="login">Login</button></a>
-                      <a href="/signup"></a><button class="btn" id="signup">Sign up</button></a>
+                      <a href="/signup"><button class="btn" id="signup">Sign up</button></a>
               </div>
           </div>
       </div>
@@ -65,10 +65,6 @@
         </div>
     </div>
 </footer>
-  
-<script src="/js/login.js"></script>
-<script src="/js/signup.js"></script>
-<script src="/js/howitworks.js"></script>
 
   <!-- Only include the logout script if the user is logged in -->
   {{!-- {{#if logged_in}}
