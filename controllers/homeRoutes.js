@@ -1,14 +1,12 @@
-const router = require('express').Router();
-const { User, Service } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { User, Service } = require("../models");
+const withAuth = require("../utils/auth");
 
 // rener the homepage
 
 router.get("/", (req, res) => {
-
-  res.render('homepage')
+  res.render("homepage");
 });
-
 
 // render the user profile page
 
@@ -30,62 +28,24 @@ router.get("/", (req, res) => {
 //     res.status(500).json(err);
 //   });
 // Use withAuth middleware to prevent access to route
-router.get('/userprofile', withAuth, async (req, res) => {
+router.get("/userprofile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
+      attributes: { exclude: ["password"] },
       include: [{ model: Project }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('userprofile', {
+    res.render("userprofile", {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-
-
-
-router.post('/signup', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-
-
-router.post('/profile', async (req, res) => {
-  try {
-    const userData = await Service.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-
-
 
 //     // Serialize data so the template can read it
 //     const projects = projectData.map((project) => project.get({ plain: true }));
@@ -99,8 +59,6 @@ router.post('/profile', async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
-
-
 
 // // render the profile page
 // router.get('/profile', (req, res) => {
@@ -121,33 +79,30 @@ router.post('/profile', async (req, res) => {
 //     res.status(500).json(err);
 //   });
 
-
 // // render the login page
 
+router.get("/howitworks", (req, res) => {
+  res.render("howitworks");
+});
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
-
-
 
 // Render the sign up page.  If the user is logged in, redirect to the home page.
-router.get('/signup', (req, res) => {
+router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
 
-  res.render('signup');
+  res.render("signup");
 });
-
-
-
 
 module.exports = router;

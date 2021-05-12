@@ -94,18 +94,18 @@ router.get('/:id', (req, res) => {
 });
 
 // POST api/service -- create a new service
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     // expects object of the form {title: 'Sample Title Here', post_text: 'Here's some sample text for a post.', user_id: 1}
-    Service.create({
-        title: req.body.title,
-        post_text: req.body.post_text,
-        user_id: req.session.user_id
-    })
-        .then(dbServiceData => res.json(dbServiceData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+    try {
+        const newService = await Service.create({
+            title: req.body.title,
+            post_text: req.body.post_text,
+            user_id: req.session.user_id
         });
+        res.status(200).json(newService);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // PUT api/posts/1-- update a post's title or text

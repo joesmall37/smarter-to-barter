@@ -31,13 +31,13 @@ Service.init(
             key: 'id',
         }
     },
-    provider_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Provider',
-        key: 'id',
-      }
-    }
+    // provider_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'Provider',
+    //     key: 'id',
+    //   }
+    // }
   },
   {
     sequelize,
