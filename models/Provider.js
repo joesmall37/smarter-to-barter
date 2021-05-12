@@ -37,7 +37,7 @@ Provider.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: "service",
+        modelName: "provider",
     }
 );
 

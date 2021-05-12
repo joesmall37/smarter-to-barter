@@ -34,11 +34,11 @@ User.init(
       validate: {
         len: [8],
       },
-        points: {
-          defaultValue: 20,
-          allowNull: false,
-        }
-      
+    },
+    points: {
+      defaultValue: 20,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
   },
   {
