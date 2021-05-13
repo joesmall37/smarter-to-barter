@@ -33,7 +33,7 @@ router.get("/userprofile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
+      include: [{ model: User }],
     });
 
     const user = userData.get({ plain: true });
@@ -43,6 +43,7 @@ router.get("/userprofile", withAuth, async (req, res) => {
       logged_in: true,
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
@@ -78,6 +79,7 @@ router.get("/userprofile", withAuth, async (req, res) => {
 //     console.log(err);
 //     res.status(500).json(err);
 //   });
+
 
 // // render the login page
 
