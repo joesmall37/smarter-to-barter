@@ -100,7 +100,7 @@ router.get("/login", (req, res) => {
 // Render the sign up page.  If the user is logged in, redirect to the home page.
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/"); // this needs to redirect to /userprofile
     return;
   }
 

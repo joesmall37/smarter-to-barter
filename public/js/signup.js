@@ -1,4 +1,3 @@
-// Sign up form handler
 async function signupFormHandler(event) {
     event.preventDefault();
     // get the information from the sign up form
@@ -28,4 +27,8 @@ async function signupFormHandler(event) {
     }
 }
 
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('#log').addEventListener('click', function() {
+    signupFormHandler()
+    console.log("click")
+});
+
