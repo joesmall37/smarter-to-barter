@@ -6,10 +6,11 @@
                     <h5 class="card-title">{{service.name}}</h5>
                     <p class="card-text">{{service.description}}</p>
                     <p class="card-text">{{service.user.name}}</p>
+                    {{!-- {{#if logged_in}} --}}
+                    <a href="/offer/{{service.id}}"><button>Make an Offer</button></a>
+                    {{!-- {{/if}} --}}
                   </div>
                 </div>
 
                 {{/each}}
                 </div>
-
-
