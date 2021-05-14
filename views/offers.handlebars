@@ -1,0 +1,25 @@
+<h2 class="card-header">Services</h2>
+            <div class="card-group">
+
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">{{service.name}}</h5>
+                    <p class="card-text">{{service.description}}</p>
+                    <p class="card-text">{{service.user.name}}</p>
+                  </div>
+                </div>
+                <form id="offer" data-service="{{service.id}}" data-user="{{service.user.id}}">
+                    <div class="form-group">
+                        <label for="input">I will like to offer...</label>
+                        <select id="input" class="form-control">
+                            {{#each userServices as |userService|}}
+                            <option value="{{userService.id}}">{{userService.id}}</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success">Make an Offer</button>
+                </form>
+
+                
+                </div> 
+
+                <script src="/js/offerScript.js">
