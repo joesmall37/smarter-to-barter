@@ -136,7 +136,7 @@ router.get('/offer/:id', async (req, res) => {
   console.log(serviceObj)
   console.log(userServicesArr)
 
-  res.render("offer", {
+  res.render("offers", {
     service: serviceObj,
     userServices: userServicesArr,
     logged_in: req.session.logged_in

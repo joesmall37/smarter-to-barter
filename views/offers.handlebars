@@ -13,13 +13,14 @@
                         <label for="input">I will like to offer...</label>
                         <select id="input" class="form-control">
                             {{#each userServices as |userService|}}
-                            <option value="{{userService.id}}">{{userService.id}}</option>
+                            <option value="{{userService.id}}">{{userService.name}}</option>
+                            {{/each}}
                         </select>
                     </div>
                     <button class="btn btn-success">Make an Offer</button>
                 </form>
 
-                
-                </div> 
+
+                </div>
 
                 <script src="/js/offerScript.js">
