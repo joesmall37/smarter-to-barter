@@ -1,7 +1,8 @@
 // render the offer routes to the profile page
 
-
-
+const router = require("express").Router()
+const withAuth = require('../../utils/auth');
+const { Offer } = require("../../models")
 // if I make an offer = add it to my "chosen section on my profile page"
 
 // create offers
@@ -53,10 +54,15 @@ router.get('/userprofile', (req, res) => {
 })
 // how about we just have a chosen section = if I choose a service - it gets added to the chosen section on my profile
 
-
+router.post("/", async (req, res) => {
+    console.log(req.body)
+    req.body.requester_id = req.session.user_id
+    const offerData = await Offer.create(req.body)
+    res.json({offerData})
+})
 
 //  to do that we will first need to have the services rendered
-
+module.exports = router
 
 
 // then we will need to have a js file to capture the even of choosing the service
