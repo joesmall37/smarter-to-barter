@@ -1,5 +1,8 @@
-async function signupFormHandler(event) {
-    event.preventDefault();
+console.log("inside signup")
+
+const signupFormHandler = async function (e) {
+    console.log("form submit")
+    e.preventDefault();
     // get the information from the sign up form
     // const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
@@ -27,8 +30,4 @@ async function signupFormHandler(event) {
     }
 }
 
-document.querySelector('#log').addEventListener('click', function() {
-    signupFormHandler()
-    console.log("click")
-});
-
+document.querySelector('#log').addEventListener('submit', signupFormHandler)

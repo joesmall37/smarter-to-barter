@@ -3,16 +3,16 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     // Get the post title and post text from the form
-    const title = document.querySelector('input[name="service-title"]').value;
-    const service_text = document.querySelector('textarea[name="service-text"]').value;
+    const name = document.querySelector('input[name="service-title"]').value;
+    const description = document.querySelector('textarea[name="service-text"]').value;
 
     // use the add a new post Service route to add the service
     // user id is added from the session information in the route
-    const response = await fetch(`/api/serviceRoutes`, {
+    const response = await fetch(`/api/services`, {
         method: 'POST',
         body: JSON.stringify({
-            title,
-            service_text
+            name,
+            description
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ async function newFormHandler(event) {
 
     // if the response is okay, reload the page, showing the newest service now in the user's profile
     if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/userprofile');
         // otherwise, display the error
     } else {
         alert(response.statusText);
