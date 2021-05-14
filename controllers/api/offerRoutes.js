@@ -61,6 +61,37 @@ router.post("/", async (req, res) => {
     res.json({offerData})
 })
 
+
+
+
+
+
+
+
+// // PUT update the user's existing offer
+// // to accept or reuqest
+// router.put('/userprofile', withAuth, (req, res) => {
+
+//     Offer.update(req.body, {
+
+//         where: {
+//             requester_id = req.session.user_id
+//         }
+//     })
+//         .then(dbOfferData => {
+//             if (!dbOfferData) {
+//                 res.status(404).json({ message: 'No offer data found' });
+//                 return;
+//             }
+//             res.json(dbOfferData);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// })
+
+
 //  to do that we will first need to have the services rendered
 module.exports = router
 

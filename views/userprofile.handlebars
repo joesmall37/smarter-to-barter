@@ -36,6 +36,28 @@
     </ol>
 </section>
 {{/if}}
+<h2 class="card-header">Services</h2>
+<div class="card-group">
+    {{#each offers as |offer|}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{offer.name}}</h5>
+            <p class="card-text">{{offer.description}}</p>
+            <p class="card-text">{{offer.user.name}}</p>
+            {{!-- {{#if logged_in}} --}}
+            <a href="/acceptoffer/{{offer.id}}"><button>Accept Offer</button></a>
+            <a href="/declinetoffer/{{offer.id}}"><button>Decline Offer</button></a>
+            {{!-- {{/if}} --}}
+        </div>
+    </div>
+
+    {{/each}}
+</div>
+
+
+
 
 <!--Script to add a service-->
 <script src="/js/addService.js"></script>
+{{!-- added --}}
+<script src="/js/acceptOfferScript.js"></script>
