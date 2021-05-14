@@ -17,8 +17,3 @@ function offerSubmitHandler(event) {
 }
 
 offerForm.addEventListener("submit", offerSubmitHandler)
-
-
-
-
-

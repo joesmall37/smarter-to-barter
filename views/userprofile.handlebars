@@ -44,9 +44,11 @@
             <h5 class="card-title">{{offer.name}}</h5>
             <p class="card-text">{{offer.description}}</p>
             <p class="card-text">{{offer.user.name}}</p>
+            <p class="card-text">{{offer.status}}</p>
             {{!-- {{#if logged_in}} --}}
-            <a href="/acceptoffer/{{offer.id}}"><button>Accept Offer</button></a>
-            <a href="/declinetoffer/{{offer.id}}"><button>Decline Offer</button></a>
+                <p>test</p>
+            <button data-offer={{offer.id}} value='accepted' class='offer-response'>Accept The Offer!</button>
+            <button data-offer={{offer.id}} value='rejected' class='offer-response'>Reject The Offer!</button>
             {{!-- {{/if}} --}}
         </div>
     </div>

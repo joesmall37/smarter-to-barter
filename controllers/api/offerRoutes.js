@@ -69,27 +69,28 @@ router.post("/", async (req, res) => {
 
 
 // // PUT update the user's existing offer
-// // to accept or reuqest
-// router.put('/userprofile', withAuth, (req, res) => {
+// to accept or reuqest
+router.put(`/api/offer/:id`, withAuth, (req, res) => {
 
-//     Offer.update(req.body, {
+    Offer.update(req.body, {
 
-//         where: {
-//             requester_id = req.session.user_id
-//         }
-//     })
-//         .then(dbOfferData => {
-//             if (!dbOfferData) {
-//                 res.status(404).json({ message: 'No offer data found' });
-//                 return;
-//             }
-//             res.json(dbOfferData);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// })
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbOfferData => {
+            if (!dbOfferData) {
+                res.status(404).json({ message: 'No offer data found' });
+                return;
+            }
+            res.json(dbOfferData);
+            console.log('the status of the request: ' + status)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
 
 
 //  to do that we will first need to have the services rendered
