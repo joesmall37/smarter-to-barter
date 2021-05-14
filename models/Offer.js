@@ -40,6 +40,10 @@ Offer.init(
         key: "id",
       },
     },
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: 'Pending'
+    }
   },
   {
     sequelize,
