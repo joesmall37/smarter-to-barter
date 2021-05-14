@@ -8,11 +8,17 @@ const sequelize = require('../../config/connection');
 // Authorization Helper
 const withAuth = require('../../utils/auth');
 
+const { Op } = require('sequelize');
 // Routes
 
 // GET api/services -- get all services
 router.get('/', (req, res) => {
     Service.findAll({
+        where: {
+            user_id: {
+                [Op.ne]: req.session.user_id,
+            }
+         },
         // Query configuration
         // From the  Service table, include the post ID, URL, title, and the timestamp from post creation
         attributes: [
@@ -28,15 +34,10 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: User,
-                attributes: ['username']
+                exclude: ['password']
             },
             {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
+                model: Offer
             }
         ]
     })
@@ -96,14 +97,17 @@ router.get('/:id', (req, res) => {
 // POST api/service -- create a new service
 router.post('/', withAuth, async (req, res) => {
     // expects object of the form {title: 'Sample Title Here', post_text: 'Here's some sample text for a post.', user_id: 1}
+    console.log('hello')
     try {
         const newService = await Service.create({
-            title: req.body.title,
-            post_text: req.body.post_text,
+            name: req.body.name,
+            description: req.body.description,
+            // qualifications: req.body.qualifications,
             user_id: req.session.user_id
         });
         res.status(200).json(newService);
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });

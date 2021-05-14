@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Service } = require("../models");
+const { User, Service, Offer } = require("../models");
 const withAuth = require("../utils/auth");
 
 // rener the homepage
@@ -33,11 +33,11 @@ router.get("/userprofile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: User }],
+      include: [{model: Offer}, {model: Service}]
     });
 
     const user = userData.get({ plain: true });
-
+    console.log(user)
     res.render("userprofile", {
       ...user,
       logged_in: true,
@@ -106,5 +106,53 @@ router.get("/signup", (req, res) => {
 
   res.render("signup");
 });
+
+// GET api/services -- get all services
+router.get('/', (req, res) => {
+  Service.findAll({
+    where: {
+      user_id: {
+        [Op.ne]: req.session.user_id,
+      }
+    },
+    // Query configuration
+    // From the  Service table, include the post ID, URL, title, and the timestamp from post creation
+    attributes: [
+      'id',
+      'description',
+      'name',
+      'created_at',
+    ],
+    // Order the posts from most recent to least
+    order: [['created_at', 'DESC']],
+    // From the User table, include the post creator's user name
+    // From the Comment table, include all comments
+    include: [
+      {
+        model: User,
+        exclude: ['password']
+      },
+      {
+        model: Offer
+      }
+    ]
+  })
+    // return the services
+    .then(dbServiceData => {
+     const servicesData = dbServiceData.map(service => service.get({plain: true}))
+     console.log(servicesData);
+     res.render('service', {
+       services: servicesData,
+       logged_in: req.session.logged_in
+     })
+    })
+
+    // if there was a server error, return the error
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 
 module.exports = router;

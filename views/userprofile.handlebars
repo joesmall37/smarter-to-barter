@@ -16,7 +16,7 @@
     </div>
     <div class="column">
         <h2>About Me</h2>
-        {{> user-info}}
+        {{!-- {{> user-info}} --}}
     </div>
 
 </section>
@@ -27,8 +27,10 @@
     <ol>
         {{#each services as |service|}}
         <li>
-            {{> service-info post}}
+        <p>
+            {{service.name}}
             <a href="/profile/edit/{{service.id}}" class="edit-link">Edit Service</a>
+         </p>
         </li>
         {{/each}}
     </ol>

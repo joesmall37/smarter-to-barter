@@ -17,12 +17,16 @@ Service.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     points: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.INTEGER,
+    },
+    // training qualifications
+    qualifications: {
+      type: DataTypes.TEXT
     },
     user_id: {
         type: DataTypes.INTEGER,
