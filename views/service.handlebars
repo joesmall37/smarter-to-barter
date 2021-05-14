@@ -1,43 +1,12 @@
 <h2 class="card-header">Services</h2>
             <div class="card-group">
+                {{#each services as |service|}}
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Javascript</h5>
-                    <p class="card-text">Learn the basics of Javascript</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
+                    <h5 class="card-title">{{service.name}}</h5>
+                    <p class="card-text">{{service.description}}</p>
+                    <p class="card-text">{{service.user.name}}</p>
                   </div>
                 </div>
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Dance Lesons</h5>
-                    <p class="card-text">Learn the hottest moves of Latin Music</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                  </div>
-                </div>
-                <div class="card">
-                  
-                  <div class="card-body">
-                    <h5 class="card-title">Learn CSS</h5>
-                    <p class="card-text">Learn to style your pages like OMG!</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                  </div>
-                </div>
-                <div class="card">
-                    
-                    <div class="card-body">
-                      <h5 class="card-title">Home Cleaning</h5>
-                      <p class="card-text">Busy week at work, kick back we'll clean.</p>
-                      <p class="card-text"><small class="text-muted"></small></p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    
-                    <div class="card-body">
-                      <h5 class="card-title">Add Service</h5>
-                      <p class="card-text"></p>
-                      <p class="card-text"><small class="text-muted"></small></p>
-                    </div>
-                  </div>
-              </div>
-        </div>
-    </div>
+                {{/each}}
+                </div> 
