@@ -15,7 +15,9 @@
         </form>
     </div>
     <div class="column">
-        <h2>About Me</h2>
+        {{!-- <h2>About Me</h2>
+        <h2>Email Address</h2> --}}
+        {{user.email}}
         {{!-- {{> user-info}} --}}
     </div>
 
@@ -36,7 +38,7 @@
     </ol>
 </section>
 {{/if}}
-<h2 class="card-header">Services</h2>
+<h2 class="card-header">Offers</h2>
 <div class="card-group">
     {{#each offers as |offer|}}
     <div class="card">
@@ -44,11 +46,11 @@
             <h5 class="card-title">{{offer.name}}</h5>
             <p class="card-text">{{offer.description}}</p>
             <p class="card-text">{{offer.user.name}}</p>
+            <p class="card-text">{{offer.user.email}}</p>
             <p class="card-text">{{offer.status}}</p>
             {{!-- {{#if logged_in}} --}}
-                <p>test</p>
-            <button data-offer={{offer.id}} value='accepted' class='offer-response'>Accept The Offer!</button>
-            <button data-offer={{offer.id}} value='rejected' class='offer-response'>Reject The Offer!</button>
+            <button data-offer={{offer.id}} value='accepted' class='offer-response'>Cancel The Offer</button>
+            {{!-- <button data-offer={{offer.id}} value='rejected' class='offer-response'>Reject The Offer!</button> --}}
             {{!-- {{/if}} --}}
         </div>
     </div>

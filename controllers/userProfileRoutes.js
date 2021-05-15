@@ -39,8 +39,8 @@ router.get('/', withAuth, (req, res) => {
     })
         .then(dbServiceData => {
             // serialize data before passing to template
-            const servics = dbServiceData.map(service => service.get({ plain: true }));
-            res.render('userprofile', { servics, loggedIn: true });
+            const services = dbServiceData.map(service => service.get({ plain: true }));
+            res.render('userprofile', { services, loggedIn: true });
         })
         .catch(err => {
             console.log(err);
