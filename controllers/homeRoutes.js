@@ -35,20 +35,44 @@ router.get("/userprofile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{model: Offer, include: [{model: User}]}, {model: Service}]
+      include:
+        // { all: true, nested: true }
+      [
+        {
+          model: Offer, as: 'serviceRequested',
+          include: [
+            {all: true, nested: true}
+            // { model: User, as: 'userRequested' },
+            // { model: Service }
+          ]
+        },
+        {
+          model: Offer, as: 'serviceOffered',
+          include: [
+            {all: true, nested: true}
+            // { model: User, as: 'requester' },
+            // { model: Service }
+          ]
+        }
+      ]
     });
 
     const user = userData.get({ plain: true });
+    // console.log(user.serviceRequested[0])
+    // console.log(user.offers[0])
+    // const offersMade = user.offers.filter(offer => offer.requester_id === req.session.user_id && offer.status === "Pending")
+    // const offersIncoming = user.offers.filter(offer => offer.requested_id === req.session.user_id && offer.status === "Pending")
 
-    const offersMade = user.offers.filter(offer => offer.requester_id === req.session.user_id && offer.status === "Pending")
-    const offersIncoming = user.offers.filter(offer => offer.requested_id === req.session.user_id && offer.status === "Pending")
-
-    console.log("Offers made: ", offersMade)
-    console.log("Offers incoming: ", offersIncoming)
+    // console.log("user", user)
+    // console.log("offers made", offersMade)
+    // console.log("offers incoming", offersIncoming)
+    console.log({...user})
+    // console.log("Offers made: ", offersMade)
+    // console.log("Offers incoming: ", offersIncoming)
     res.render("userprofile", {
       ...user,
-      offersMade,
-      offersIncoming,
+      // offersMade,
+      // offersIncoming,
       logged_in: true,
     });
   } catch (err) {
