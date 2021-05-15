@@ -13,38 +13,53 @@ Service.belongsTo(User, {
 
 User.hasMany(Offer, {
     foreignKey: 'requested_id',
+    as: 'serviceRequested',
     onDelete: 'CASCADE'
 })
 
 User.hasMany(Offer, {
     foreignKey: 'requester_id',
+    as: 'serviceOffered',
     onDelete: 'CASCADE'
 })
 
 Offer.belongsTo(User, {
-    foreignKey: 'requested_id'
+    foreignKey: 'requested_id',
+    as: 'requester'
 })
 
 Offer.belongsTo(User, {
   foreignKey: "requested_id",
+  as: 'requestedUser'
 });
 
 Service.hasMany(Offer, {
-    foreignKey: 'service_request_id',
-    onDelete: 'CASCADE'
+    foreignKey: {
+        field: "service_request_id",
+        // as: "serviceRequested"
+    },
 })
 
 Service.hasMany(Offer, {
-  foreignKey: "service_offer_id",
+  foreignKey: {
+    field: "service_offer_id",
+    // as: "serviceOffered"
+  },
   onDelete: "CASCADE",
 });
 
 Offer.belongsTo(Service, {
-    foreignKey: 'service_request_id'
+
+        foreignKey: 'service_request_id',
+        // as: "serviceRequested",
+
 })
 
 Offer.belongsTo(Service, {
-    foreignKey: 'service_offer_id'
+    foreignKey: 'service_offer_id',
+        // as: "serviceOffered",
+
+
 })
 
 
