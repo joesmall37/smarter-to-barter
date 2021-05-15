@@ -22,6 +22,13 @@
         <h2>About Me</h2>
         {{!-- {{> user-info}}
     </div> --}} 
+
+    <div class="column">
+        {{!-- <h2>About Me</h2>
+        <h2>Email Address</h2> --}}
+        {{user.email}}
+        {{!-- {{> user-info}} --}}
+
     </div>
 </section>
 
@@ -40,6 +47,7 @@
     </ol>
 </section>
 {{/if}}
+
 <h2 class="card-header text-center" style="background-color: #034078; color: #FEFCFB;">Services</h2>
 <div class="card-group">
     {{#each offers as |offer|}}
@@ -54,10 +62,46 @@
             <button data-offer={{offer.id}} value='accepted' class='offer-response btn-info'>Accept The Offer!</button>
             <button data-offer={{offer.id}} value='rejected' class='offer-response btn-info'>Reject The Offer!</button>
             {{!-- {{/if}} --}}
+
+<h2 class="card-header">Outgoing Offers</h2>
+<div class="card-group">
+    {{#each serviceOffered}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{this.id}}</h5>
+            <p class="card-text">{{this.service.description}}</p>
+            <p class="card-text">{{this.user.name}}</p>
+            <p class="card-text">{{offer.user.email}}</p>
+            <p class="card-text">{{this.status}}</p>
+
+            <button data-offer={{offer.id}} value='accepted' class='offer-response'>Cancel</button>
+                {{!-- <button data-offer={{offer.id}} value='accepted' class='offer-response'>Edit The Offer</button> --}}
+            {{!-- <button data-offer={{offer.id}} value='rejected' class='offer-response'>Reject The Offer!</button> --}}
+
         </div>
     </div>
 
     {{/each}}
+
+    <h2 class="card-header">Incoming Offers</h2>
+    <div class="card-group">
+        {{#each serviceRequested}}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{this.service.name}}</h5>
+                <p class="card-text">{{this.service.description}}</p>
+                <p class="card-text">{{this.user.name}}</p>
+                <p class="card-text">{{offer.user.email}}</p>
+                <p class="card-text">{{offer.status}}</p>
+
+                <button data-offer={{offer.id}} value='accepted' class='offer-response'>Accept</button>
+                <button data-offer={{offer.id}} value='accepted' class='offer-response'>Reject</button>
+                {{!-- <button data-offer={{offer.id}} value='rejected' class='offer-response'>Reject The Offer!</button>
+                --}}
+            </div>
+        </div>
+
+        {{/each}}
 </div>
 
 

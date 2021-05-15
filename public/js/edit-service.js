@@ -9,14 +9,14 @@ async function editFormHandler(event) {
 
     // Get the service title and service text from the form
     const title = document.querySelector('input[name="service-title"]').value;
-    const post_text = document.querySelector('textarea[name="service-text"]').value;
+    const description = document.querySelector('textarea[name="service-text"]').value;
 
     // use the update route to update the service
     const response = await fetch(`/api/services/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
-            service_text
+            description
         }),
         headers: {
             'Content-Type': 'application/json'
