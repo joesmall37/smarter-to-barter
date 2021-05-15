@@ -1,4 +1,4 @@
-<h2 class="card-header">Services</h2>
+<h2 class="card-header text-center margin-top: 25px;" style="background-color: #034078; color: #FEFCFB;">Services</h2>
             <div class="card-group">
                 {{#each services as |service|}}
                 <div class="card">
@@ -8,7 +8,7 @@
                     <p class="card-text">{{service.user.name}}</p>
                     <p class="card-text">{{service.user.email}}</p>
                     {{!-- {{#if logged_in}} --}}
-                    <a href="/offer/{{service.id}}"><button>Make an Offer</button></a>
+                    <a href="/offer/{{service.id}}"><button class="btn btn-info">Make an Offer</button></a>
                     {{!-- {{/if}} --}}
                   </div>
                 </div>

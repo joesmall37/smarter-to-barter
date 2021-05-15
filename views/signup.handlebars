@@ -1,20 +1,21 @@
-<main class="card" style="background-color: #1282A2;">
-    <div class="card" style="background-color: rgb(227, 231, 233); text-align: center; width: 35%; margin-left: 33%; border-radius: 5%;">
+<main>
+    <div class="card" style="text-align: center; width: 35%; margin-left: 33%; border-radius: 5%;">
 
-        <h1>JOIN BartCoin</h1>
+        <h1 class="header-signup">JOIN BartCoin</h1>
+
         <div class="card-body-join" class="d-flex justify-content-evenly">
             <!-- <img src="./img/pp1.PNG" alt="photographer">    -->
-            <img src="./img/pp2.PNG" alt="pianist">
+            {{!-- <img src="./img/pp2.PNG" alt="pianist"> --}}
         </div>
 
 
-        <div>
+        {{!-- <div>
             <p>Continue with ...</p>
             <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
             <a href="https://google.com"><i class="fab fa-google"></i></a>
-        </div>
-        <hr>
+        </div> --}}
+        <hr style="color: #034078; height:5px">
         <div>
             <form id="log" class="form signup-form">
                 <input type="text" id="email-signup" placeholder="New User Email"><br>
@@ -22,8 +23,8 @@
                 <input type="password" id="password-signup" placeholder="New Password"><br>
                 <br>
                 {{!-- <input type="text" id="code-join" placeholder="Verification Code"><br> --}}
-            <br>
-            <button type="submit">SIGN UP</button>
+            
+            <button class="btn btn-signup" type="submit">SIGN UP</button>
             </form>
         </div>
         <br>

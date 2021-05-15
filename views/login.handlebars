@@ -1,25 +1,23 @@
 
-<main class="card" style="background-color: #1282A2;">
-    <div class="card" style="background-color: rgb(227, 231, 233); text-align: center; width: 35%; margin-left: 33%; border-radius: 5%;">
+<main>
+    <div class="card" style="text-align: center; width: 35%; margin-left: 33%; border-radius: 5%;">
 
-        <h1>LOGIN</h1>
-        <div>
+        <h1 class="header-login">LOGIN</h1>
+        {{!-- <div>
             <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
             <a href="https://google.com"><i class="fab fa-google"></i></a>
-                <br>--------<br>
-        </div>
+                <br> <br>
+        </div> --}}
+        <hr style="color: #034078; height:5px">
         <div>
             <form class="form login-form">
-                <label for="email">Email:</label><br>
-                <input type="text" id="email-login"><br>
+                <input type="text" id="email-login" placeholder="Email"><br>
                 <br>
-                <br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password-login">
+                <input type="password" id="password-login" placeholder="Password"><br>
             </form>
             <br>
-            <button class="sign-in-btn" type="button" id="log">SIGN IN</button>
+            <button class="btn sign-in-btn" type="button" id="log">SIGN IN</button>
         </div>
         <br>
         <p>Not a member? <a href="/signup">Join Now</a></p>

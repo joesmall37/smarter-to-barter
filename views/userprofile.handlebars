@@ -1,26 +1,35 @@
-<section class="row">
-    <div class="column">
+<section>
+    <div class="card" style="text-align: center; width: 35%; margin-left: 33%; border-radius: 5%;">
         <h2>Create Service</h2>
 
+        <div class="card-body-join" class="d-flex justify-content-evenly">
+            
+        </div>
+    <div>
         <form class="new-service-form">
             <div>
-                <label for="service-title">Title</label>
+                <label for="service-title" class="form-label">Service Title</label><br>
                 <input type="text" id="service-title" name="service-title" />
             </div>
             <div>
-                <label for="service-text">Service</label>
+                <label for="service-text">Service Description</label><br>
                 <textarea id="service-text" name="service-text"></textarea>
             </div>
-            <button type="submit" class="btn">Create</button>
+            <button type="submit" class="btn btn-info">Create</button>
         </form>
     </div>
+    {{!-- <div class="column">
+        <h2>About Me</h2>
+        {{!-- {{> user-info}}
+    </div> --}} 
+
     <div class="column">
         {{!-- <h2>About Me</h2>
         <h2>Email Address</h2> --}}
         {{user.email}}
         {{!-- {{> user-info}} --}}
-    </div>
 
+    </div>
 </section>
 
 {{#if services.length}}
@@ -38,6 +47,22 @@
     </ol>
 </section>
 {{/if}}
+
+<h2 class="card-header text-center" style="background-color: #034078; color: #FEFCFB;">Services</h2>
+<div class="card-group">
+    {{#each offers as |offer|}}
+    <div class="card" style="margin-bottom: 25px">
+        <div class="card-body" style="background-color:#FEFCFB;">
+            <h5 class="card-title">{{offer.name}}</h5>
+            <p class="card-text">{{offer.description}}</p>
+            <p class="card-text">{{offer.user.name}}</p>
+            <p class="card-text">{{offer.status}}</p>
+            {{!-- {{#if logged_in}} --}}
+                <p>test</p>
+            <button data-offer={{offer.id}} value='accepted' class='offer-response btn-info'>Accept The Offer!</button>
+            <button data-offer={{offer.id}} value='rejected' class='offer-response btn-info'>Reject The Offer!</button>
+            {{!-- {{/if}} --}}
+
 <h2 class="card-header">Outgoing Offers</h2>
 <div class="card-group">
     {{#each serviceOffered}}
@@ -52,6 +77,7 @@
             <button data-offer={{offer.id}} value='accepted' class='offer-response'>Cancel</button>
                 {{!-- <button data-offer={{offer.id}} value='accepted' class='offer-response'>Edit The Offer</button> --}}
             {{!-- <button data-offer={{offer.id}} value='rejected' class='offer-response'>Reject The Offer!</button> --}}
+
         </div>
     </div>
 
