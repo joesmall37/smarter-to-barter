@@ -3,7 +3,7 @@
         <h2>Create Service</h2>
 
         <div class="card-body-join" class="d-flex justify-content-evenly">
-            
+
         </div>
     <div>
         <form class="new-service-form">
@@ -21,7 +21,7 @@
     {{!-- <div class="column">
         <h2>About Me</h2>
         {{!-- {{> user-info}}
-    </div> --}} 
+    </div> --}}
 
     <div class="column">
         {{!-- <h2>About Me</h2>
@@ -62,11 +62,12 @@
             <button data-offer={{offer.id}} value='accepted' class='offer-response btn-info'>Accept The Offer!</button>
             <button data-offer={{offer.id}} value='rejected' class='offer-response btn-info'>Reject The Offer!</button>
             {{!-- {{/if}} --}}
+    {{/each}}
 
-<h2 class="card-header">Outgoing Offers</h2>
 <div class="card-group">
     {{#each serviceOffered}}
     <div class="card">
+        <h2>Outgoing Offers</h2>
         <div class="card-body">
             <h5 class="card-title">{{this.id}}</h5>
             <p class="card-text">{{this.service.description}}</p>
@@ -83,10 +84,11 @@
 
     {{/each}}
 
-    <h2 class="card-header">Incoming Offers</h2>
+
     <div class="card-group">
         {{#each serviceRequested}}
         <div class="card">
+            <h2>Incoming Offers</h2>
             <div class="card-body">
                 <h5 class="card-title">{{this.service.name}}</h5>
                 <p class="card-text">{{this.service.description}}</p>
