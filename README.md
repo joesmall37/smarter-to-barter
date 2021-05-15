@@ -49,4 +49,4 @@ MIT
 
 # Preview of the App
 * This is how the app looks
-![BartCoinApp Screenshot]( )
+- ![image](https://user-images.githubusercontent.com/63420051/118372259-c628c700-b57e-11eb-9e23-f74b8f262301.png)
