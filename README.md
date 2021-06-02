@@ -45,7 +45,7 @@ MIT
 <br>Copyright (c) [2021] 
 
 # Deployment
-[Link](https://radiant-reef-40192.herokuapp.com/)
+[Link to deployed application](https://radiant-reef-40192.herokuapp.com/)
 
 # Preview of the App
 * This is how the app looks
